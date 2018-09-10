@@ -29,7 +29,7 @@ def main():
 	turn_counter = 0 
 	try:
 		while(1):
-			time.sleep(2)
+			time.sleep(3)
 			#print('')
 			#keypressed = input("Press 1 to continue... q to quit ")
 			turn_start = detect_start_turn()
@@ -40,18 +40,17 @@ def main():
 
 				turn_counter+=1
 				#use NPs then check for chains
-				print('move attack')	
+				#print('move attack')	
 				pyautogui.moveTo(1378, 696)
-				print('click attack')
+				#print('click attack')
 				pyautogui.click() # TEST
 				time.sleep(2.0)
-				screen = grab_screen_fgo()
-				card_list, brave_chain_raw_img_list = get_cards(screen)
+				
 
-				if turn_counter > 5:
+				if turn_counter > 9:
 					time.sleep(1)
-					print('')
-					print('using NPs')
+					#print('')
+					#print('using NPs')
 					#check NPs
 					#np1 = get_card_raw("NP1", screen)
 					#np2 = get_card_raw("NP2", screen)
@@ -69,7 +68,8 @@ def main():
 				#				break
 
 
-
+				screen = grab_screen_fgo()
+				card_list, brave_chain_raw_img_list = get_cards(screen)
 
 				card_list, brave_chain_raw_img_list = brave_chain_check(card_list,brave_chain_raw_img_list)
 				pick_cards_from_card_list(card_list)

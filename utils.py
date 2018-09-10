@@ -57,18 +57,28 @@ scale=transforms.Compose([transforms.Resize((224,224)),
 def get_card_raw(card_slot, raw_image):
 	if card_slot == 1:
 		sliced = raw_image[255:380, 68:157]
+		#cv2.imshow("cropped", sliced)
+		cv2.waitKey(0)
 
 	elif card_slot == 2:
-		sliced = raw_image[255:380, 215:310]
+		sliced = raw_image[255:380, 215:295]
+		#cv2.imshow("cropped", sliced)
+		#cv2.waitKey(0)
 
 	elif card_slot == 3:
-		sliced = raw_image[255:380, 355:455]
+		sliced = raw_image[255:380, 355:440]
+		#cv2.imshow("cropped", sliced)
+		#cv2.waitKey(0)
 
 	elif card_slot == 4:
-		sliced = raw_image[255:380, 495:595]
+		sliced = raw_image[255:380, 500:590]
+		#cv2.imshow("cropped", sliced)
+		#cv2.waitKey(0)
 
 	elif card_slot == 5:
-		sliced = raw_image[255:380, 640:740]
+		sliced = raw_image[255:380, 645:735]
+		#cv2.imshow("cropped", sliced)
+		#cv2.waitKey(0)
 
 	elif card_slot == "NP1":
 		sliced = raw_image[89:200, 232:313]
@@ -151,7 +161,7 @@ def brave_chain_checker(base_card,raw_card_list):
 
         output1,output2 = siamese_model(base_card.cuda(),img.cuda())
         euclidean_distance = F.pairwise_distance(output1, output2)
-        print(euclidean_distance)
+        #print(euclidean_distance)
         if euclidean_distance <=.45:
             match_list.append('match')
         else:
@@ -207,8 +217,8 @@ def brave_chain_check(card_list, brave_chain_raw_img_list):
 
 		img_base = scale(base_card).unsqueeze(0)
 		brave_chain_list = brave_chain_checker(img_base,brave_chain_raw_img_list)
-		print(brave_chain_list)
-		print(card_list)
+		#print(brave_chain_list)
+		#print(card_list)
 		if len(brave_chain_list) >=3:
 			for i in range(len(card_list)):
 				if i not in brave_chain_list:
@@ -219,7 +229,7 @@ def brave_chain_check(card_list, brave_chain_raw_img_list):
 					continue
 			break	
 
-	print(card_list)		
+	#print(card_list)		
 
 	return card_list, brave_chain_list
 	
