@@ -20,7 +20,7 @@ Once that is done it will start checking for the reappearance of the attack butt
 So in this process the ability to identify the attack button and the card types are traditional CNNs while looking for 3 cards by the same character is a siamese CNN. 
 I built all of the networks using Pytorch and trained them on either a 1060 or 1080 Nvidia GPU.
 
-For more detail here is a link to the medium post (here)
+For more detail here is a link to the [medium post here](https://medium.com/@michaelsugimura/project-pendragon-an-ai-bot-for-fate-grand-order-23f51b6e3268)
 
 ![](arts_chain.gif)
 
