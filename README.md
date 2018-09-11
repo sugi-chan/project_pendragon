@@ -1,6 +1,10 @@
 # Project Pendragon
 
-Project Pendragon uses a backbone of three Pytorch neural networks to make decisions on what cards to play and when within the mobile phone game Fate Grand Order (FGO). For some this might be me overengineering a solution, but for me is a fun project that actually does save me time daily with in-game item farming.
+
+
+Project Pendragon uses a backbone of three Pytorch neural networks to make decisions on what cards to play and when within the mobile phone game Fate Grand Order (FGO). For some this might be me overengineering a solution, but for me is a fun project that actually does save me time daily with in-game item farming. It frees up 10-15 minutes per morning that I would have spent farming which is quite useful before work.
+
+![](brave_chain1.gif)
 
 Before starting coding, I had to figure out the general process I wanted the bot to follow and the following is the logic structure I came up with.
 
@@ -17,3 +21,13 @@ So in this process the ability to identify the attack button and the card types 
 I built all of the networks using Pytorch and trained them on either a 1060 or 1080 Nvidia GPU.
 
 For more detail here is a link to the medium post (here)
+
+![](arts_chain.gif)
+
+
+Useful files:
+project_pendragon.py is the main bot file
+3 model training files: resnet34_pytorch.py, resnet18_pytorch.py, and the siamese network I actually trained in a jupyter notebook which I also included. 
+
+the utils file contains helper functions that I call in project_pendragon.py to make it more readable and the grab screen file was there to help me calibrate the screen captures and crops that I would use for inputs into my various networks for the bot. 
+
